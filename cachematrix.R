@@ -5,11 +5,11 @@
 
 makeCacheMatrix <- function(x = matrix()) {
   m<- NULL
-  set <- function(y){
+  set <- function(y){## setter method
     x<<-y
     m<- NULL
   }
-  get <- function()x
+  get <- function()x## getter method
   setInverseMatrix <- function(inverseMatrix) m <<- inverseMatrix
   getInverseMatrix <- function()m
   list(set = set,get =get , setInverseMatrix=setInverseMatrix,getInverseMatrix=getInverseMatrix)
@@ -26,7 +26,7 @@ cacheSolve <- function(x, ...) {
     return(m)
   }
   data <- get()
-  m<- solve(data)
+  m<- solve(data) ## calculate the reverse and assign it back to the variable
   setInverseMatrix(m)
   m
 }
